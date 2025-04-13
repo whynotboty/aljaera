@@ -1,16 +1,56 @@
-.box::before { 
-content: " 
-position: absolute; 
-width: 100%; 
-height: 100%; 
-filter: drop-shadow (@ 15px 50px #000); 
-border-radius: 20px; 
-animation: rotating 4s Linear infinite; 
-animation-delay: -15; 
-.box::after { 
-content: " 
-position: absolute; 
-inset: 4px; 
-background: #2d2d39; 
-border-radius: 15px; 
-border: 8px solid #25252b;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Box with Pseudo-Elements</title>
+  <style>
+    body {
+      margin: 0;
+      background: #1c1c1c;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .box {
+      position: relative;
+      width: 200px;
+      height: 200px;
+    }
+
+    .box::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      filter: drop-shadow(15px 50px #000);
+      border-radius: 20px;
+      animation: rotating 4s linear infinite;
+      animation-delay: -15s;
+      background: #3a3a50;
+    }
+
+    .box::after {
+      content: "";
+      position: absolute;
+      inset: 4px;
+      background: #2d2d39;
+      border-radius: 15px;
+      border: 8px solid #25252b;
+    }
+
+    @keyframes rotating {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="box"></div>
+</body>
+</html>
